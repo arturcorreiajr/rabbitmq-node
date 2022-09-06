@@ -1,0 +1,29 @@
+
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes:
+            - ./dados:/var/lib/rabbitmq/
+        environment:
+            - RABBITMQ_DEFAULT_USER=guest
+            - RABBITMQ_DEFAULT_PASS=guest
+
+    producer:
+        image: arturcorreiajunior/producer-rabbitmq-node:latest
+        container_name: producer
+        restart: always
+        ports:
+            - 8080:3000
+        depends_on:
+        - rabbitmq
+
+    consumer:
+        image: arturcorreiajunior/consumer-rabbitmq-node:latest
+        container_name: consumer
+        depends_on:
+        - rabbitmq

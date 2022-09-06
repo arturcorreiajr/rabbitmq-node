@@ -19,7 +19,7 @@ cd producer
 ```
 Instale as dependências
 ```console
-npm instal amqplib && npm i express && npm i body-parser
+npm install amqplib && npm i express && npm i body-parser
 ```
 Rode a aplicação
 ```console
@@ -31,5 +31,7 @@ localhost:3000/sendLog
 ```
 json
 ```console
-{"logType":"info","message":"Download Successful"}
+{"logType":"info","message":"Download Successfull"}
 ```
+
+docker run -p 8080:3000 arturcorreiajunior/producer-rabbitmq-node:latest
