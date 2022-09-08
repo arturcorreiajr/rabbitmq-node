@@ -27,7 +27,7 @@ node server.js
 ```
 Use o postman e faça um POST na URL
 ```console
-localhost:3000/sendLog
+localhost:3000/producer
 ```
 json
 ```console
