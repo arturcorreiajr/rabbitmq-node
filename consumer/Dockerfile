@@ -6,7 +6,6 @@ WORKDIR /home/node/app
 COPY package*.json ./
 
 RUN npm install
-RUN npm install amqplib && npm i express && npm i body-parser
 
 COPY . .
 
@@ -16,4 +15,4 @@ USER node
 
 EXPOSE 3000
 
-CMD [ "node", "server.js" ]
+CMD [ "node", "app.js" ]
