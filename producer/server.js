@@ -6,13 +6,18 @@ const producer = new Producer();
 
 app.use(bodyParser.json("application/json"));
 
-app.post("/sendLog", async(req, res, next) => {
+app.get("/", function (req, res, next) {
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(JSON.stringify({message: 'Producer is running...'}))
+});
+
+app.post("/producer", async(req, res, next) => {
     await producer.publishMessage(req.body.logType, req.body.message);
     res.send();
 });
 
 app.listen(3000, () => {
-    console.log("Server Started...");
+    console.log("Producer Started...");
 })
 
 

@@ -25,5 +25,7 @@ services:
     consumer:
         image: arturcorreiajunior/consumer-rabbitmq-node:latest
         container_name: consumer
+        ports:
+            - 8081:3000
         depends_on:
         - rabbitmq
